@@ -44,14 +44,14 @@ python control32k.py
   @return bool type, means returning initialization status
   @retval true NO_ERROR
 '''
-  def begin(self)
+  def begin(self):
 
 '''!
   @brief Calibrate RTC immediately with GNSS
   @note This is a single calibration
   @n If the GNSS module signal is weak, time calibration may encounter issues
 '''
-  def calib_rtc(self)
+  def calib_rtc(self):
 
 '''!
   @brief The loop automatically performs GNSS timing based on the set interval
@@ -60,7 +60,7 @@ python control32k.py
   @n Enabling it will trigger an immediate calibration
   @n If the GNSS module signal is weak, time calibration may encounter issues
 '''
-  def calib_rtc_hour(self, hour)
+  def calib_rtc_hour(self, hour):
 
 '''!
   @brief Current clock calibration status
@@ -74,7 +74,7 @@ python control32k.py
   @note Note: To avoid affecting subsequent calibration status,
   @n    "Calibration completed Status (1)" is automatically zeroed after a successful read
 '''
-  def calib_status(self, mode=True)
+  def calib_status(self, mode=True):
 
 '''!
 /******************************************************************
@@ -86,7 +86,7 @@ python control32k.py
   @brief Get information of year in RTC module
   @return Return the obtained year
 '''
-  def get_rtc_time(self)
+  def get_rtc_time(self):
 
 '''!
   @brief Set clock as 24-hour or 12-hour format
@@ -94,7 +94,7 @@ python control32k.py
   @n	E24HOURS
   @n	E12HUORS
 '''
-  def set_hour_system(self, mode)
+  def set_hour_system(self, mode):
 
 '''!
   @brief Set time into rtc and take effect immediately
@@ -105,7 +105,7 @@ python control32k.py
   @param minute 0~59
   @param second 0~59
 '''
-  def set_time(self, year, month, day, hour, minute, second)
+  def set_time(self, year, month, day, hour, minute, second):
 
 '''!
   @brief Set the data for triggering alarm
@@ -113,7 +113,7 @@ python control32k.py
   @param month 1~12
   @param day 1~31
 '''
-  def set_alarm(self, year, month, day)
+  def set_alarm(self, year, month, day):
 
 '''!
   @brief Set the Alarmnumber object
@@ -125,66 +125,66 @@ python control32k.py
   @param minute 0~59
   @param second 0~59
 '''
-  def set_alarm(self, week, hour, minute, second)
+  def set_alarm(self, week, hour, minute, second):
 
 '''!
   @brief Get internal temperature of the clock
   @return Return the obtained temperature, unit8: ℃
 '''
-  def get_temperature_c(self)
+  def get_temperature_c(self):
 
 '''!
   @brief Get voltage of onboard battery
   @return float Return the obtained voltage
 '''
-  def get_voltage(self)
+  def get_voltage(self):
 
 '''!
   @brief Clear alarm flag bit
 '''
-  def clear_alarm(self)
+  def clear_alarm(self):
     
 '''!
   @brief output AM or PM of time
   @return AM or PM, return empty string for 24 hours mode
 '''
-  def get_am_or_pm(self)
+  def get_am_or_pm(self):
 
 '''!
   @brief enable the 32k output
 '''
-  def enable_32k(self)
+  def enable_32k(self):
 
 '''!
   @brief disable the 32k output
 '''
-  def disable_32k(self)
+  def disable_32k(self):
 
 '''!
   @brief write the SRAM
   @param addr 0x2c~0x71
   @param data 0x00~0xff uint8_t HEX
 '''
-  def write_sram(self, addr, data)
+  def write_sram(self, addr, data):
 
 '''!
   @brief read the SRAM
   @param addr 0x2c~0x71
   @return data stored in the SRAM
 '''
-  def read_sram(self, addr)
+  def read_sram(self, addr):
 
 '''!
   @brief clear the SRAM
   @param addr 0x2c~0x71
 '''
-  def clear_sram(self, addr)
+  def clear_sram(self, addr):
   
 '''!
   @brief Countdown
   @param second  countdown time 0~0xffffff
 '''
-  def count_down(self, second)
+  def count_down(self, second):
 '''!
 /******************************************************************
  *                  GNSS(L76K) module API
@@ -198,7 +198,7 @@ python control32k.py
   @retval STim_t.minute minute
   @retval STim_t.second second
 '''
-  def get_utc(self)
+  def get_utc(self):
 
 '''!
   @brief Get date information, year, month, day
@@ -207,7 +207,7 @@ python control32k.py
   @retval STim_t.month month
   @retval STim_t.date date
 '''
-  def get_date(self)
+  def get_date(self):
 
 '''!
   @brief Get latitude
@@ -218,7 +218,7 @@ python control32k.py
   @retval SLonLat_t.latitude Latitude value with 7 decimal digits
   @retval SLonLat_t.latDirection Direction of latitude
 '''
-  def get_lat(self)
+  def get_lat(self):
 
 '''!
   @brief Get longitude
@@ -229,31 +229,31 @@ python control32k.py
   @retval SLonLat_t.lonitude Longitude value with 7 decimal digits
   @retval SLonLat_t.lonDirection Direction of longi
 '''
-  def get_lon(self)
+  def get_lon(self):
 
 '''!
   @brief Get the number of the used satellite used
   @return uint8_t type, represents the number of the used satellite
 '''
-  def get_num_sat_used(self)
+  def get_num_sat_used(self):
 
 '''!
   @brief Get altitude
   @return double type, represents altitude
 '''
-  def get_alt(self)
+  def get_alt(self):
 
 '''!
   @brief Get speed over ground
   @return speed Float data(unit: knot)
 '''
-  def get_sog(self)
+  def get_sog(self):
 
 '''!
   @brief Get course over ground
   @return Float data(unit: degree)
 '''
-  def get_cog(self)
+  def get_cog(self):
 
 '''!
   @brief Set GNSS to be used
@@ -266,7 +266,7 @@ python control32k.py
   @n   EBEIDOU_GLONASS   use beidou +glonass
   @n   EGPS_BEIDOU_GLONASS use gps + beidou + glonass
 '''
-  def set_gnss(self, mode)
+  def set_gnss(self, mode):
 
 '''!
   @brief Get the used gnss mode
@@ -279,28 +279,28 @@ python control32k.py
   @retval 6 beidou +glonass
   @retval 7 gps + beidou + glonass
 '''
-  def get_gnss_mode(self)
+  def get_gnss_mode(self):
 
 '''!
   @brief Get GNSS data, call back and receive
 '''
-  def get_all_gnss(self)
+  def get_all_gnss(self):
 
 '''!
   @brief Enable gnss power
 '''
-  def enable_power(self)
+  def enable_power(self):
 
 '''!
   @brief Disable gnss power
 '''
-  def disable_power(self)
+  def disable_power(self):
 
 '''!
   @brief Set callback function type
   @param  callback function name
 '''
-  def set_callback(self, callback)
+  def set_callback(self, callback):
 
 ```
 

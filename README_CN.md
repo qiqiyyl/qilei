@@ -44,14 +44,14 @@ python control32k.py
   @brief 初始化传感器
   @return 返回初始化状态
 '''
-  def begin(self)
+  def begin(self):
 
 '''!
   @brief 立即用GNSS模块获得的时间校准RTC模块的时间
   @note 这是单次校准;
   @n 如果GNSS模块信号较弱，时间校准可能会遇到问题。
 '''
-  def calib_rtc(self)
+  def calib_rtc(self):
 
 '''!
   @brief 按照设定的时间间隔自动进行校时
@@ -60,7 +60,7 @@ python control32k.py
   @n 启用它的同时将立即触发一次校准。 
   @n 如果GNSS模块信号较弱，时间校准可能会遇到问题。
 '''
-  def calib_rtc_hour(self, hour)
+  def calib_rtc_hour(self, hour):
 
 '''!
   @brief 当前时钟校准状态
@@ -73,7 +73,7 @@ python control32k.py
   @note 注: 为避免影响后续的校准状态，
   @n    “校准完成状态(1)”在第一次读取成功后自动归零
 '''
-  def calib_status(self, mode=True)
+  def calib_status(self, mode=True):
 
 '''!
 /******************************************************************
@@ -84,7 +84,7 @@ python control32k.py
   @brief 获取时钟模块中的年
   @return 返回获取的年份
 '''
-  def get_rtc_time(self)
+  def get_rtc_time(self):
 
 '''!
   @brief 设置时钟是24小时制还是12小时制
@@ -92,7 +92,7 @@ python control32k.py
   @n	E24HOURS
   @n	E12HOURS
 '''
-  def set_hour_system(self, mode)
+  def set_hour_system(self, mode):
 
 '''!
   @brief 设置时钟时间
@@ -103,7 +103,7 @@ python control32k.py
   @param minute 0~59
   @param second 0~59
 '''
-  def set_time(self, year, month, day, hour, minute, second)
+  def set_time(self, year, month, day, hour, minute, second):
 
 '''!
   @brief 设置触发告警数据
@@ -111,7 +111,7 @@ python control32k.py
   @param month 1~12
   @param day 1~31
 '''
-  def set_alarm(self, year, month, day)
+  def set_alarm(self, year, month, day):
 
 '''!
   @brief 设置触发告警数据
@@ -123,66 +123,66 @@ python control32k.py
   @param minute 0~59
   @param second 0~59
 '''
-  def set_alarm(self, week, hour, minute, second)
+  def set_alarm(self, week, hour, minute, second):
 
 '''!
   @brief 获取时钟内部温度
   @return 返回获取得温度，单位：℃
 '''
-  def get_temperature_c(self)
+  def get_temperature_c(self):
 
 '''!
   @brief 获取板载电池电压
   @return float 返回获取得电压
 '''
-  def get_voltage(self)
+  def get_voltage(self):
 
 '''!
   @brief 清除报警标志位
 '''
-  def clear_alarm(self)
+  def clear_alarm(self):
   
 '''!
   @brief 输出上午或下午的时间
   @return 上午或下午的时间，24小时模式返回空字符串
 '''
-  def get_am_or_pm(self)
+  def get_am_or_pm(self):
 
 '''!
   @brief 开启32k频率输出
 '''
-  def enable_32k(self)
+  def enable_32k(self):
 
 '''!
   @brief 关闭32k输出
 '''
-  def disable_32k(self)
+  def disable_32k(self):
     
 '''!
   @brief 写 SRAM
   @param addr 0x2c~0x71
   @param data 0x00~0xff 写数据
 '''
-  def write_sram(self, addr, data)
+  def write_sram(self, addr, data):
 
 '''!
   @brief 读 SRAM
   @param addr 0x2c~0x71
   @return 存储在SRAM中的数据
 '''
-  def read_sram(self, addr)
+  def read_sram(self, addr):
 
 '''!
   @brief 清除SRAM
   @param addr 0x2c~0x71
 '''
-  def clear_sram(self, addr)
+  def clear_sram(self, addr):
   
 '''!
   @brief 倒计时
   @param second  倒计时时间 0~0xffffff
 '''
-  def count_down(self, second)
+  def count_down(self, second):
 
 '''!
 /******************************************************************
@@ -197,7 +197,7 @@ python control32k.py
   @retval STim_t.minute 分
   @retval STim_t.second 秒
 '''
-  def get_utc(self)
+  def get_utc(self):
 
 '''!
   @brief 获取年月日等日期
@@ -206,7 +206,7 @@ python control32k.py
   @retval STim_t.month 月
   @retval STim_t.day 日
 '''
-  def get_date(self)
+  def get_date(self):
 
 '''!
   @brief 获取纬度
@@ -217,7 +217,7 @@ python control32k.py
   @retval SLonLat_t.latitude 包含7位小数的纬度值
   @retval SLonLat_t.latDirection 纬度的方向
 '''
-  def get_lat(self)
+  def get_lat(self):
 
 '''!
   @brief 获取经度
@@ -228,31 +228,31 @@ python control32k.py
   @retval SLonLat_t.lonitude 包含7位小数的经度值
   @retval SLonLat_t.lonDirection 经度的方向
 '''
-  def get_lon(self)
+  def get_lon(self):
 
 '''!
   @brief 获取使用的卫星数
   @return uint8_t 类型，表示使用的卫星数
 '''
-  def get_num_sat_used(self)
+  def get_num_sat_used(self):
 
 '''!
   @brief 获取大地的高度
   @return double 类型，表示大地的高度
 '''
-  def get_alt(self)
+  def get_alt(self):
 
 '''!
   @brief 获取对地速度
   @return speed 浮点型数据 （单位 节）
 '''
-  def get_sog(self)
+  def get_sog(self):
 
 '''!
   @brief 获取对地真航向
   @return 浮点型数据 （单位 度）
 '''
-  def get_cog(self)
+  def get_cog(self):
 
 '''!
   @brief 设置星系
@@ -265,7 +265,7 @@ python control32k.py
   @n   EBEIDOU_GLONASS   使用 beidou +glonass
   @n   EGPS_BEIDOU_GLONASS 使用 gps + beidou + glonass
 '''
-  def set_gnss(self, mode)
+  def set_gnss(self, mode):
 
 '''!
   @brief 获取使用的星系模式
@@ -278,28 +278,28 @@ python control32k.py
   @retval 6 使用 beidou +glonass
   @retval 7 使用 gps + beidou + glonass
 '''
-  def get_gnss_mode(self)
+  def get_gnss_mode(self):
 
 '''!
   @brief 获取gnss的数据,回调接收
 '''
-  def get_all_gnss(self)
+  def get_all_gnss(self):
 
 '''!
   @brief 使能gnss的电源
 '''
-  def enable_power(self)
+  def enable_power(self):
 
 '''!
   @brief 失能gnss的电源
 '''
-  def disable_power(self)
+  def disable_power(self):
 
 '''!
   @brief 设置回调函数类型
   @param  callback 函数名
 '''
-  def set_callback(self, callback)
+  def set_callback(self, callback):
 ```
 
 ## 兼容性
