@@ -48,25 +48,25 @@ python control32k.py
 
 '''!
   @brief Calibrate RTC immediately with GNSS
-  @note This is a single calibration;
-  @n If the GNSS module signal is weak, time calibration may encounter issues.
+  @note This is a single calibration
+  @n If the GNSS module signal is weak, time calibration may encounter issues
 '''
   def calib_rtc(self)
 
 '''!
   @brief The loop automatically performs GNSS timing based on the set interval
-  @param hour Automatic calibration of the time interval. range: 0~255, unit: hour.
-  @note When set to zero, automatic time calibration is disabled.
-  @n Enabling it will trigger an immediate calibration.
-  @n If the GNSS module signal is weak, time calibration may encounter issues.
+  @param hour Automatic calibration of the time interval. range: 0~255, unit: hour
+  @note When set to zero, automatic time calibration is disabled
+  @n Enabling it will trigger an immediate calibration
+  @n If the GNSS module signal is weak, time calibration may encounter issues
 '''
   def calib_rtc_hour(self, hour)
 
 '''!
   @brief Current clock calibration status
-  @param mode By default, it is set to true, indicating access to the calibration status only.
-  @n  If continuous calibration for one minute does not return a successful calibration,
-  @n  you can pass in false to manually terminate this calibration session.
+  @param mode By default, it is set to true, indicating access to the calibration status only
+  @n  If continuous calibration for one minute does not return a successful calibration
+  @n  you can pass in false to manually terminate this calibration session
   @return uint8_t type, indicates current clock calibration status
   @retval 0 Not calibrated
   @retval 1 Calibration complete
